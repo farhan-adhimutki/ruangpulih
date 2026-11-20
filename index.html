@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ruang Pulih — Ruang aman untuk mulai pulih</title>
+    <meta
+      name="description"
+      content="Ruang Pulih: ruang awal yang aman untuk mengenali perasaanmu, belajar tentang kesehatan mental, dan terhubung dengan tim kami lewat WhatsApp — tanpa perlu daftar akun."
+    />
+    <meta name="theme-color" content="#00BFFF" />
+
+    <!-- Menandai JS aktif agar animasi reveal dipakai. Jika skrip utama gagal
+       dimuat dalam 2.5 detik, kelas dicabut supaya konten tetap terlihat. -->
+    <script>
+      document.documentElement.classList.add("js");
+      setTimeout(function () {
+        if (!window.__rpRevealReady)
+          document.documentElement.classList.remove("js");
+      }, 2500);
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="js/catalog-data.js" defer></script>
+    <script src="js/scroll-reveal.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Langsung ke konten</a>
+
+    <div class="progress" aria-hidden="true">
+      <span class="progress__bar"></span>
+    </div>
+
+    <!-- HeaderNav -->
+    <header class="nav" id="top">
+      <div class="nav__inner container">
+        <a
+          class="nav__brand"
+          href="#hero"
+          aria-label="Ruang Pulih, kembali ke atas"
+        >
+          <svg class="nav__logo" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M4 7c4-2 8-2 12 1v18c-4-3-8-3-12-1z" fill="#00BFFF" />
+            <path d="M28 7c-4-2-8-2-12 1v18c4-3 8-3 12-1z" fill="#062B3D" />
+          </svg>
+          <span>Ruang Pulih</span>
+        </a>
+
+        <button
+          class="nav__toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <span class="nav__toggle-bar" aria-hidden="true"></span>
+          <span class="sr-only">Buka menu</span>
+        </button>
+
+        <nav class="nav__menu" id="nav-menu" aria-label="Navigasi utama">
+          <ul>
+            <li><a href="#sinopsis" data-nav>Sinopsis</a></li>
+            <li><a href="#visi-misi" data-nav>Visi &amp; Misi</a></li>
+            <li><a href="#katalog" data-nav>Katalog</a></li>
+            <li>
+              <a href="#konsultasi" class="nav__cta" data-nav>Konsultasi</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HeroBookCover -->
+      <section class="hero" id="hero" aria-labelledby="hero-title">
+        <div class="hero__deco" aria-hidden="true">
+          <span class="bubble bubble--1"></span>
+          <span class="bubble bubble--2"></span>
+          <span class="bubble bubble--3"></span>
+        </div>
+
+        <div class="hero__inner container">
+          <div class="book" data-reveal="book">
+            <div class="book__pages" aria-hidden="true"></div>
+            <div class="book__cover">
+              <span class="book__spine" aria-hidden="true"></span>
+              <div class="book__frame">
+                <p class="book__edition"></p>
+                <svg
+                  class="book__emblem"
+                  viewBox="0 0 64 64"
+                  aria-hidden="true"
+                >
+                  <circle cx="32" cy="32" r="30" fill="#E5F8FF" />
+                  <path
+                    d="M32 46c-9-6-14-11-14-18a8 8 0 0 1 14-5 8 8 0 0 1 14 5c0 7-5 12-14 18z"
+                    fill="#00BFFF"
+                  />
+                </svg>
+                <h1 class="book__title" id="hero-title">Ruang<br />Pulih</h1>
+                <p class="book__tagline">
+                  Halaman pertama untuk mengenali perasaanmu — pelan-pelan,
+                  tanpa dihakimi.
+                </p>
+                <p class="book__author">oleh Suci Sundari</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__info" data-reveal="right" data-reveal-delay="200">
+            <p class="eyebrow eyebrow--dark">Ruang aman untuk mulai pulih</p>
+            <h2 class="hero__headline">
+              Kamu tidak harus siap untuk mulai bercerita.
+            </h2>
+            <p class="hero__lead">
+              Ruang Pulih adalah tempat awal untuk memahami apa yang kamu
+              rasakan, membaca materi yang menenangkan, dan menyapa tim kami
+              kapan pun kamu mau.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#konsultasi">Mulai Bicara</a>
+              <a class="btn btn--ghost" href="#sinopsis">Baca dulu</a>
+            </div>
+          </div>
+        </div>
+
+        <a
+          class="hero__scroll"
+          href="#sinopsis"
+          aria-label="Gulir ke bagian Sinopsis"
+        >
+          <span aria-hidden="true"></span>
+        </a>
+      </section>
+
+      <!-- SinopsisSection -->
+      <section
+        class="section sinopsis"
+        id="sinopsis"
+        aria-labelledby="sinopsis-title"
+      >
+        <div class="container narrow">
+          <header class="chapter" data-reveal="up">
+            <h2 class="chapter__title" id="sinopsis-title">Sinopsis</h2>
+            <span class="chapter__rule" aria-hidden="true"></span>
+          </header>
+
+          <div class="prose">
+            <p class="dropcap" data-reveal="up">
+              Ada hari-hari ketika semuanya terasa terlalu berat, tapi kata-kata
+              belum juga menemukan jalannya. Kamu tahu ada yang tidak beres,
+              namun pergi ke psikolog terasa seperti langkah yang terlalu besar
+              — entah karena takut dicap, belum siap, atau sekadar tidak tahu
+              harus mulai dari mana.
+            </p>
+            <p data-reveal="up" data-reveal-delay="100">
+              <strong>Ruang Pulih</strong> hadir sebagai halaman pertama. Di
+              sini kamu bisa mengenali perasaanmu, membaca materi kesehatan
+              mental yang mudah dipahami, dan — ketika kamu merasa butuh —
+              menyapa tim kami lewat WhatsApp. Tanpa formulir panjang, tanpa
+              akun, tanpa penilaian.
+            </p>
+            <p data-reveal="up" data-reveal-delay="200">
+              Kami bukan pengganti terapi profesional. Kami adalah jembatan
+              kecil yang menemanimu menuju bantuan yang tepat, dengan kecepatan
+              yang kamu pilih sendiri.
+            </p>
+          </div>
+
+          <ul class="pillars">
+            <li class="pillar" data-reveal="up" style="--i: 0">
+              <span class="pillar__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"
+                  />
+                </svg>
+              </span>
+              <h3>Kenali</h3>
+              <p>Beri nama pada perasaan yang selama ini terasa samar.</p>
+            </li>
+            <li class="pillar" data-reveal="up" style="--i: 1">
+              <span class="pillar__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 5h7v14H4zM13 5h7v14h-7z" />
+                </svg>
+              </span>
+              <h3>Pahami</h3>
+              <p>Belajar dari bacaan yang hangat dan tidak menggurui.</p>
+            </li>
+            <li class="pillar" data-reveal="up" style="--i: 2">
+              <span class="pillar__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" /></svg>
+              </span>
+              <h3>Bicara</h3>
+              <p>Saat siap, sapa tim kami — kami akan mendengarkan.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- VisiMisiCard -->
+      <section
+        class="section visimisi"
+        id="visi-misi"
+        aria-labelledby="visimisi-title"
+      >
+        <div class="container">
+          <header class="chapter" data-reveal="up">
+            <h2 class="chapter__title" id="visimisi-title">Visi &amp; Misi</h2>
+            <span class="chapter__rule" aria-hidden="true"></span>
+          </header>
+
+          <div class="visimisi__grid">
+            <figure class="visi" data-reveal="left">
+              <span class="visi__label">Visi</span>
+              <blockquote>
+                <p>
+                  Menjadi ruang pertama yang aman dan hangat bagi setiap orang
+                  untuk mengenali dirinya, sehingga tidak ada lagi yang merasa
+                  harus pulih sendirian.
+                </p>
+              </blockquote>
+              <span class="visi__mark" aria-hidden="true">&ldquo;</span>
+            </figure>
+
+            <div class="misi" data-reveal="right" data-reveal-delay="150">
+              <span class="misi__label">Misi</span>
+              <ol class="misi__list">
+                <li>
+                  <span class="misi__no" aria-hidden="true">01</span>
+                  <p>
+                    Menyediakan edukasi kesehatan mental yang mudah dipahami,
+                    berbasis sumber terpercaya, dan bebas stigma.
+                  </p>
+                </li>
+                <li>
+                  <span class="misi__no" aria-hidden="true">02</span>
+                  <p>
+                    Menghadirkan jalur konsultasi awal yang ringan dan familiar,
+                    tanpa proses pendaftaran yang rumit.
+                  </p>
+                </li>
+                <li>
+                  <span class="misi__no" aria-hidden="true">03</span>
+                  <p>
+                    Mengkurasi buku dan jurnal yang membantu proses mengenali
+                    dan merawat diri.
+                  </p>
+                </li>
+                <li>
+                  <span class="misi__no" aria-hidden="true">04</span>
+                  <p>
+                    Menjembatani pengunjung menuju layanan profesional ketika
+                    bantuan lebih lanjut dibutuhkan.
+                  </p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KatalogGrid -->
+      <section
+        class="section katalog"
+        id="katalog"
+        aria-labelledby="katalog-title"
+      >
+        <div class="container">
+          <header class="chapter" data-reveal="up">
+            <h2 class="chapter__title" id="katalog-title">Katalog</h2>
+            <span class="chapter__rule" aria-hidden="true"></span>
+            <p class="chapter__lead">
+              Bacaan dan teman kecil untuk menemani proses pulihmu.
+            </p>
+          </header>
+
+          <div
+            class="filters"
+            role="group"
+            aria-label="Saring katalog berdasarkan kategori"
+            data-reveal="up"
+          >
+            <button
+              type="button"
+              class="chip is-active"
+              data-filter="Semua"
+              aria-pressed="true"
+            >
+              Semua
+            </button>
+            <button
+              type="button"
+              class="chip"
+              data-filter="Buku"
+              aria-pressed="false"
+            >
+              Buku
+            </button>
+            <button
+              type="button"
+              class="chip"
+              data-filter="Jurnal"
+              aria-pressed="false"
+            >
+              Jurnal
+            </button>
+          </div>
+
+          <p class="sr-only" id="katalog-status" aria-live="polite"></p>
+          <div
+            class="slider"
+            id="katalog-slider"
+            data-reveal="up"
+            data-reveal-delay="100"
+          >
+            <ul
+              class="slider__track"
+              id="katalog-grid"
+              tabindex="0"
+              aria-label="Daftar produk katalog, geser ke samping untuk melihat lainnya"
+            ></ul>
+            <div class="slider__controls">
+              <button
+                type="button"
+                class="slider__btn"
+                data-dir="-1"
+                aria-label="Produk sebelumnya"
+                aria-controls="katalog-grid"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M15 5l-7 7 7 7"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="slider__dots" aria-hidden="true"></div>
+              <button
+                type="button"
+                class="slider__btn"
+                data-dir="1"
+                aria-label="Produk berikutnya"
+                aria-controls="katalog-grid"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M9 5l7 7-7 7"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="empty" id="katalog-empty" hidden>
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <path
+                d="M10 14h18c3 0 4 2 4 4v32c0-2-1-3-4-3H10zM54 14H36c-3 0-4 2-4 4v32c0-2 1-3 4-3h18z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <p class="empty__title">Produk akan segera hadir</p>
+            <p class="empty__text">
+              Kami sedang menyiapkan bacaan terbaik untukmu. Sementara itu, kamu
+              tetap bisa menyapa tim kami.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ConsultationCTA -->
+      <section
+        class="section konsultasi"
+        id="konsultasi"
+        aria-labelledby="konsultasi-title"
+      >
+        <div class="konsultasi__deco" aria-hidden="true">
+          <span class="bubble bubble--4"></span>
+          <span class="bubble bubble--5"></span>
+        </div>
+        <div class="container narrow konsultasi__inner">
+          <header class="chapter chapter--light" data-reveal="up">
+            <h2 class="chapter__title" id="konsultasi-title">
+              Halaman Berikutnya Milikmu
+            </h2>
+            <span class="chapter__rule" aria-hidden="true"></span>
+          </header>
+
+          <p class="konsultasi__lead" data-reveal="up" data-reveal-delay="100">
+            Kalau kamu sudah merasa butuh bicara, kami di sini. Cukup klik
+            tombol di bawah, dan ceritakan sebanyak atau sesedikit yang kamu
+            mau.
+          </p>
+
+          <div
+            class="konsultasi__card"
+            data-reveal="scale"
+            data-reveal-delay="200"
+          >
+            <a
+              class="btn btn--primary btn--wa"
+              id="wa-button"
+              href="#konsultasi"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"
+                />
+              </svg>
+              <span>Konsultasi via WhatsApp</span>
+            </a>
+            <p class="wa-note" id="wa-note"></p>
+
+            <div class="fallback" id="wa-fallback" hidden>
+              <p class="fallback__label">
+                WhatsApp tidak terbuka? Salin nomor kami:
+              </p>
+              <div class="fallback__row">
+                <span class="fallback__number" id="wa-number"></span>
+                <button type="button" class="copy" id="wa-copy">
+                  Salin nomor
+                </button>
+              </div>
+              <p class="sr-only" id="wa-copy-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <p class="footer__name">Ruang Pulih</p>
+          <p class="footer__tag">Ruang aman untuk mulai pulih.</p>
+        </div>
+        <div class="footer__note">
+          <p>
+            <strong>Catatan penting:</strong> Ruang Pulih adalah ruang edukasi
+            dan konsultasi awal, bukan pengganti layanan psikolog, psikiater,
+            atau terapi profesional.
+          </p>
+          <p>
+            Jika kamu atau orang terdekat sedang dalam bahaya atau krisis,
+            segera hubungi layanan darurat <strong>119 ext. 8</strong> atau
+            datangi fasilitas kesehatan terdekat.
+          </p>
+        </div>
+        <p class="footer__copy">
+          &copy; <span id="year">2026</span> Ruang Pulih. Dibuat dengan
+          hati-hati.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
