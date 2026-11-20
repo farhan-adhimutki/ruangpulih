@@ -279,7 +279,24 @@
         done();
       }
     });
-  } else {
+  }
+
+  /* ---------------- Pendampingan: tiap ruang membuka WA dengan pesan sesuai kategori ---------------- */
+  $$('[data-pendampingan]').forEach(function (link) {
+    var ruang = link.getAttribute('data-pendampingan');
+    if (number.length >= 9) {
+      var msg = 'Halo Tim Ruang Pulih, aku ingin pendampingan di ' + ruang + '. Boleh dibantu?';
+      link.href = 'https://wa.me/' + number + '?text=' + encodeURIComponent(msg);
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.setAttribute('aria-label', 'Pilih ' + ruang + ' (membuka WhatsApp di tab atau aplikasi baru)');
+    } else {
+      link.setAttribute('aria-label', 'Pilih ' + ruang + ', menuju bagian konsultasi');
+    }
+    link.addEventListener('click', function () { track('pendampingan_click', { ruang: ruang }); });
+  });
+
+  if (number.length < 9) {
     // Error state: nomor belum diisi → tombol nonaktif, tidak mengarah ke link rusak.
     waBtn.removeAttribute('href');
     waBtn.removeAttribute('target');
