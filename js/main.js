@@ -90,49 +90,56 @@
     });
   }
 
-  /** Pilih warna teks (navy/putih) dengan kontras terbaik terhadap warna cover. */
-  function inkFor(hex) {
-    var h = String(hex || '#00BFFF').replace('#', '');
-    if (h.length === 3) h = h.replace(/./g, '$&$&');
-    var rgb = [0, 2, 4].map(function (i) {
-      var v = parseInt(h.substr(i, 2), 16) / 255;
-      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
-    });
-    var L = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
-    var navyL = 0.0219; // luminans #062B3D
-    var vsNavy = (L + 0.05) / (navyL + 0.05);
-    var vsWhite = 1.05 / (L + 0.05);
-    return vsNavy >= vsWhite ? '#062B3D' : '#FFFFFF';
-  }
-
-  function coverMark(category) {
-    if (category === 'Jurnal') return '<path d="M6 4h12v16H6z M9 8h6 M9 12h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>';
-    return '<path d="M4 6c3-1.5 5.5-1.5 8 .5v13c-2.5-2-5-2-8-.5zM20 6c-3-1.5-5.5-1.5-8 .5v13c2.5-2 5-2 8-.5z" fill="currentColor"/>';
-  }
-
   function cardHTML(item) {
-    var ink = inkFor(item.coverColor);
-    var isWhite = /^#?f{3}(f{3})?$/i.test(item.coverColor);
-    var shape = '';
-    var border = isWhite ? 'box-shadow: inset 0 0 0 1px rgba(6,43,61,.15), 0 18px 28px -14px rgba(6,43,61,.45);' : '';
+    var imgs = Array.isArray(item.images) ? item.images : [];
+    var gallery = imgs.map(function (src, i) {
+      return '<img class="product__img' + (i === 0 ? ' is-active' : '') + '" src="' + escapeHTML(src) + '"' +
+        ' alt="' + (i === 0 ? escapeHTML(item.title) : '') + '"' +
+        ' width="900" height="900" decoding="async" />';
+    }).join('');
+    var pips = imgs.length > 1
+      ? '<div class="product__pips" aria-hidden="true">' +
+          imgs.map(function (_, i) { return '<span class="product__pip' + (i === 0 ? ' is-active' : '') + '"></span>'; }).join('') +
+        '</div>'
+      : '';
+    var buy = item.buyUrl
+      ? '<a class="product__buy" href="' + escapeHTML(item.buyUrl) + '" target="_blank" rel="noopener"' +
+          ' aria-label="Beli ' + escapeHTML(item.title) + ' di Shopee (membuka tab baru)">' +
+          'Beli di Shopee' +
+          '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+        '</a>'
+      : '';
     return (
       '<li class="product">' +
-        '<div class="product__stage" aria-hidden="true">' +
-          '<div class="product__cover' + shape + '" style="background:' + escapeHTML(item.coverColor) + ';color:' + ink + ';' + border + '">' +
-            '<span class="product__cover-cat">' + escapeHTML(item.category) + '</span>' +
-            '<span class="product__cover-title">' + escapeHTML(item.title) + '</span>' +
-            '<svg class="product__cover-mark" viewBox="0 0 24 24">' + coverMark(item.category) + '</svg>' +
-          '</div>' +
-        '</div>' +
+        '<div class="product__stage">' + gallery + pips + '</div>' +
         '<div class="product__body">' +
           '<span class="product__cat">' + escapeHTML(item.category) + '</span>' +
           '<h3 class="product__title">' + escapeHTML(item.title) + '</h3>' +
           (item.description ? '<p class="product__desc">' + escapeHTML(item.description) + '</p>' : '') +
           '<p class="product__price"><span class="sr-only">Harga: </span>' + rupiah.format(item.price) + '</p>' +
+          buy +
         '</div>' +
       '</li>'
     );
   }
+
+  /* Slider gambar per produk: berganti otomatis tiap 2 detik.
+     Berhenti saat kartu di-hover/difokus dan saat tab tidak terlihat. */
+  var GALLERY_INTERVAL = 2000;
+  setInterval(function () {
+    if (document.hidden) return;
+    $$('.product', grid).forEach(function (card) {
+      if (card.matches(':hover') || card.matches(':focus-within')) return;
+      var imgs = $$('.product__img', card);
+      if (imgs.length < 2) return;
+      var pips = $$('.product__pip', card);
+      var cur = imgs.findIndex(function (im) { return im.classList.contains('is-active'); });
+      var next = (cur + 1) % imgs.length;
+      imgs[cur].classList.remove('is-active');
+      imgs[next].classList.add('is-active');
+      if (pips.length) { pips[cur].classList.remove('is-active'); pips[next].classList.add('is-active'); }
+    });
+  }, GALLERY_INTERVAL);
 
   function renderCatalog(category) {
     var list = category && category !== 'Semua'

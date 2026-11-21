@@ -6,52 +6,52 @@
  * @typedef {Object} CatalogItem
  * @property {string} id
  * @property {string} title
- * @property {'Buku'|'Jurnal'} category
+ * @property {'Buku'|'Merchandise'} category
  * @property {number} price        Harga dalam Rupiah
- * @property {string} coverColor   Hex, dipakai sebagai warna cover placeholder
+ * @property {string[]} images     Path gambar (img/web/*.webp). Lebih dari 1 → slider otomatis tiap 2 detik.
+ * @property {string} [buyUrl]     Link pembelian (mis. Shopee). Jika kosong, tombol beli tidak tampil.
  * @property {string} [description]
  *
- * CATATAN: judul, kategori, dan harga masih DUMMY — menunggu finalisasi dari Cakap.
+ * Gambar asli (PNG besar) ada di img/. Versi web terkompresi ada di img/web/.
  */
+var SHOPEE_BUKU = 'https://id.shp.ee/ShdejYjZ';
+
 window.CATALOG_ITEMS = [
   {
     id: 'rp-b01',
-    title: 'Pelan-Pelan Saja',
+    title: 'Rusak Saja Buku Ini',
     category: 'Buku',
-    price: 89000,
-    coverColor: '#00BFFF',
-    description: 'Kumpulan esai pendek tentang menerima hari-hari yang tidak baik-baik saja.'
+    price: 35000,
+    description: 'Tersedia 3 versi: for Emotional Therapy, Girl Version, dan The Journal.',
+    images: ['img/web/book.webp', 'img/web/girlversion.webp', 'img/web/thejourney.webp'],
+    buyUrl: SHOPEE_BUKU
   },
   {
-    id: 'rp-b02',
-    title: 'Mengenal Cemas',
-    category: 'Buku',
-    price: 95000,
-    coverColor: '#062B3D',
-    description: 'Panduan ringan memahami kecemasan: dari tubuh, pikiran, hingga cara meredakannya.'
+    id: 'rp-m01',
+    title: 'Psymirror',
+    category: 'Merchandise',
+    price: 15000,
+    images: ['img/web/Psymirrorslide1.webp', 'img/web/Psymirrorslide2.webp']
   },
   {
-    id: 'rp-b03',
-    title: 'Surat untuk Diri Sendiri',
-    category: 'Buku',
-    price: 79000,
-    coverColor: '#7FDFFF',
-    description: 'Prompt menulis reflektif untuk berdamai dengan masa lalu dan merawat harapan.'
+    id: 'rp-m02',
+    title: 'Anxiety Ring',
+    category: 'Merchandise',
+    price: 27000,
+    images: ['img/web/cincinslide1.webp', 'img/web/cincinslide2.webp', 'img/web/cincinslide3.webp']
   },
   {
-    id: 'rp-j01',
-    title: 'Jurnal Syukur 90 Hari',
-    category: 'Jurnal',
-    price: 69000,
-    coverColor: '#FFFFFF',
-    description: 'Tiga baris sehari untuk melatih perhatian pada hal-hal kecil yang menguatkan.'
+    id: 'rp-m03',
+    title: 'Sleeping Patch',
+    category: 'Merchandise',
+    price: 37000,
+    images: ['img/web/sleepingpatchslide1.webp', 'img/web/sleepingpatchslide2.webp']
   },
   {
-    id: 'rp-j02',
-    title: 'Jurnal Suasana Hati',
-    category: 'Jurnal',
-    price: 75000,
-    coverColor: '#0099CC',
-    description: 'Lacak pola emosimu dengan pelacak harian, mingguan, dan catatan pemicu.'
+    id: 'rp-m04',
+    title: 'Affirmation Card',
+    category: 'Merchandise',
+    price: 15000,
+    images: ['img/web/AfirmationCardslide1.webp', 'img/web/AfirmationCardslide2.webp']
   }
 ];
