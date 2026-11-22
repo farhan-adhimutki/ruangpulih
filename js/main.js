@@ -11,7 +11,7 @@
      Selama masih kosong, tombol konsultasi tampil nonaktif dengan keterangan.
      ------------------------------------------------------------------ */
   var CONFIG = {
-    WA_NUMBER: '',
+    WA_NUMBER: '6285664680858',
     WA_MESSAGE: 'Halo Tim Ruang Pulih, aku ingin konsultasi awal. Boleh dibantu?'
   };
 
